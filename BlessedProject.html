@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogbonna Blessed assignment</title>
+    <style>
+        * {margin: 0;
+   padding: 0; 
+   box-sizing: border-box;}
+
+body {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;}
+
+.container {
+    max-width: 450px;
+    background-color: #1c2841;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px;}
+
+.title {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;}
+
+h1 {color: #fff;
+    letter-spacing: 1.4px;}
+
+    #celsius, #Fahrenheit, #Kelvin {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-top: 25px;}
+
+input {
+    flex: 5;
+    height: 60px;
+    font-size: 20px;
+    font-weight: center;
+    border: none;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+    padding: 0 10px;
+    text-align: center;}
+
+
+.icon {
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #4d5964;
+    color: #fff;
+    border-radius: 0 8px 8px 0;
+}
+
+.button {
+    margin-top: 25px;
+    text-align: center;
+
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s linear;
+    box-shadow: 5px 5px 5px ;
+}
+
+button:active {
+    box-shadow: 0 2px 0;
+    transform: translateY(5px);
+}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Temperature converter</h1>
+            <!-- <span class="Temperature-icon"><img src="./Images/Seventh Image.jpg" alt="""></i></span> -->
+        </div>
+    <div id="celsius">
+        <input type="number" name="" placeholder="Celsius">
+        <span class="icon">&#8451</span>
+    </div>
+    <div id="Fahrenheit">
+        <input type="number" name="" placeholder="Fahrenheit">
+        <span class="icon">&#8457</span>
+    </div>
+    <div id="Kelvin">
+        <input type="number" name="" placeholder="Kelvin">
+        <span class="icon">&#8490</span>
+    </div>
+
+    <div class="button">
+        <button>All clear</button>
+    </div>
+    </div>
+
+    <script>
+        let celsiusInput = document.querySelector('#celsius > input')
+        let FahrenheitInput = document.querySelector('#Fahrenheit > input')
+        let KelvinInput = document.querySelector('#Kelvin > input')
+
+        let btn = document.querySelector('button')
+
+        function roundNumber(number){
+        return Math.round(number*100)/100
+        }
+
+        celsiusInput.addEventListener('input', function(){
+        let cTemp = parseFloat(celsiusInput.value)
+        let fTemp = (cTemp*(9/5)) + 32
+        let kTemp = cTemp + 273.15
+
+        FahrenheitInput.value = roundNumber(fTemp)
+        KelvinInput.value = roundNumber(kTemp)
+        })
+
+        FahrenheitInput.addEventListener('input', function(){
+        let fTemp = parseFloat(FahrenheitInput.value)
+        let cTemp = (fTemp - 32) * (5/9)
+        let kTemp = (fTemp - 32) * (5/9) + 273.15
+
+        celsiusInput.value = roundNumber(cTemp)
+        KelvinInput.value = roundNumber(kTemp)
+        })
+
+        KelvinInput.addEventListener('input', function(){
+        let kTemp = parseFloat(KelvinInput.value)
+        let cTemp = kTemp - 273.15
+        let fTemp = (kTemp - 273.15) * (9/5) + 32
+
+        celsiusInput.value = roundNumber(cTemp)
+        FahrenheitInput.value = roundNumber(fTemp)
+        })
+
+        btn.addEventListener('click', ()=>{
+        celsiusInput.value = ""
+        FahrenheitInput.value = ""
+        KelvinInput.value = ""
+        })
+    </script>
+
+</body>
+</html>
