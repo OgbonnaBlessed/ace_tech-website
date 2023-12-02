@@ -1,42 +1,63 @@
-let celsiusInput = document.querySelector('#celsius > input')
-let FahrenheitInput = document.querySelector('#Fahrenheit > input')
-let KelvinInput = document.querySelector('#Kelvin > input')
+alert ("Good Morning");
 
-let btn = document.querySelector('button')
+// Strings
+let Fruits = "Apple";
 
-function roundNumber(number){
-    return Math.round(number*100)/100
+// Number
+let Digit = 30;
+
+//Boolean
+let Filled = true;
+
+// Calculations
+let x = 2;
+
+let y = 3;
+
+//Addition
+let a = x + y;
+console.log(a);
+
+//Subtraction
+let b = x - y;
+console.log(b);
+
+//Multiplication
+let n = x * y;
+console.log(n);
+
+// If Else loop
+var num = 3;
+if (num % 2 == 0) {
+    console.log("The number is Even")
+} else {
+    console.log("The number is odd")
+};
+
+// For loop
+for (let x = 0; x <= 10; x++) {
+    console.log(x);
+};
+
+// Function
+function addNumbers(a, b) {
+    console.log(a + b);
 }
+addNumbers(7, 8);
+addNumbers(17, 9);
+addNumbers(6, 2);
 
-celsiusInput.addEventListener('input', function(){
-    let cTemp = parseFloat(celsiusInput.value)
-    let fTemp = (cTemp*(9/5)) + 32
-    let kTemp = cTemp + 273.15
+// Array
+let Fruit = ["Apple", "Orange", "Mango", "Pear"];
+console.log(Fruit);
 
-    FahrenheitInput.value = roundNumber(fTemp)
-    KelvinInput.value = roundNumber(kTemp)
-})
+//Object
+let Object = {Name: "James", Age: "34", Hobby: "Football"};
+console.log(Object);
 
-FahrenheitInput.addEventListener('input', function(){
-    let fTemp = parseFloat(FahrenheitInput.value)
-    let cTemp = (fTemp - 32) * (5/9)
-    let kTemp = (fTemp - 32) * (5/9) + 273.15
+// Higher Order Functions
+let arrayFirst = [2, 5, 8, 13];
 
-    celsiusInput.value = roundNumber(cTemp)
-    KelvinInput.value = roundNumber(kTemp)
-})
+let modifyArray = arrayFirst.filter((x) => x % 2);
 
-KelvinInput.addEventListener('input', function(){
-    let kTemp = parseFloat(KelvinInput.value)
-    let cTemp = kTemp - 273.15
-    let fTemp = (kTemp - 273.15) * (9/5) + 32
-
-    celsiusInput.value = roundNumber(cTemp)
-    FahrenheitInput.value = roundNumber(fTemp)
-})
-
-btn.addEventListener('click', ()=>{
-    celsiusInput.value = ""
-    FahrenheitInput.value = ""
-    KelvinInput.value = ""
-})
+console.log(modifyArray);
